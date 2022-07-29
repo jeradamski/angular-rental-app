@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://spring-bikes-rental.herokuapp.com/",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
