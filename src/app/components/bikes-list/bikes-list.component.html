@@ -1,10 +1,10 @@
-<h3>Lista Rowerów: </h3>
+<br>
+<h3>OFERTA </h3>
 <table class="table">
   <thead>
   <tr>
-    <th scope="col">#</th>
+    <th scope="col"></th>
     <th scope="col">Nazwa</th>
-    <th scope="col">Model</th>
     <th scope="col">Rozmiar</th>
     <th scope="col">Typ</th>
     <th scope="col">Cena wypożyczenia</th>
@@ -13,13 +13,12 @@
   </thead>
   <tbody>
   <tr *ngFor="let bike of bikes" routerLink="/bikes-list">
-    <td>{{bike.id}}</td>
-    <td>{{bike.name}}</td>
-    <td>{{bike.model}}</td>
+    <td><img src="assets\images\{{bike.model}}.jpg" alt="bicycle photo" height="200px" width="300px"></td>
+    <td>{{bike.model}} {{bike.name}}</td>
     <td>{{bike.size}}</td>
     <td>{{bike.type}}</td>
-    <td>{{bike.rentalPrice}}</td>
-    <td><a type="button" class="btn btn-secondary" routerLink="/ordering/{{bike.id}}">Wypożycz</a></td>
+    <td>{{bike.rentalPrice}},00zł</td>
+    <td><a style="margin-top: 60%" type="button" class="btn btn-secondary" routerLink="/ordering/{{bike.id}}">Wypożycz</a></td>
   </tr>
   </tbody>
 </table>

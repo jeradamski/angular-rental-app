@@ -10,6 +10,8 @@ import { BikesListComponent } from './components/bikes-list/bikes-list.component
 import { AboutComponent } from './components/about/about.component';
 import { OrderingComponent } from './components/ordering/ordering.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { NavigationComponent } from './navigation/navigation.component';
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     AppComponent,
     BikesListComponent,
     AboutComponent,
-    OrderingComponent
+    OrderingComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
