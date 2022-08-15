@@ -23,6 +23,14 @@ export class BikeService {
     );
   }
 
+  getBikeById(bikeId: number): Observable<Bike> {
+    return this.http.get<Bike>(`${this.baseUrl}/bikes-list/${bikeId}`).pipe(
+      catchError(this.handleError<Bike>('getBikes',undefined))
+    );
+  }
+//`${this.baseUrl}/rent/${bikeId}?`
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

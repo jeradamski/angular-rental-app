@@ -1,0 +1,9 @@
+.alert {
+  color: darkred;
+}
+form {
+  padding-bottom: 100px;
+}
+input.ng-invalid.ng-touched {
+  border: darkred 1px solid;
+}

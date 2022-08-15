@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 
@@ -12,7 +12,11 @@ import { OrderingComponent } from './components/ordering/ordering.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { NavigationComponent } from './navigation/navigation.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-
+import { MainComponent } from './components/main/main.component';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AgmCoreModule } from '@agm/core';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     BikesListComponent,
     AboutComponent,
     OrderingComponent,
-    NavigationComponent
+    NavigationComponent,
+    MainComponent,
+    FooterComponent,
+    ContactComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,10 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     FormsModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({apiKey: ''})
+
   ],
   providers: [],
   bootstrap: [AppComponent]

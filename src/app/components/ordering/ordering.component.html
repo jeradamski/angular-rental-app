@@ -1,36 +1,54 @@
 <br>
 <h3>Rezerwacja roweru</h3>
 <p>W celu dokonania rezerwacji prosimy o uzupełnienie poniższego formularza.</p>
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="container">
     <div class="row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4" style="padding-left: 0px">
         <label for="dateFrom">Data początku wynajmu</label>
         <div class="input-group">
           <input id="dateFrom" class="form-control" placeholder="yyyy-mm-dd"
-                 name="dp" [(ngModel)]="fromDate" ngbDatepicker #d="ngbDatepicker">
-          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                 name="dp" [(ngModel)]="fromDate" ngbDatepicker #d="ngbDatepicker" formControlName="fromDate">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><img src="assets/images/calendar.svg"
+                                                                                                     alt=""></button>
         </div>
+        <span class="text-danger"
+              *ngIf="(registerForm['fromDate'].touched || submitted) && registerForm['fromDate'].errors['required']">
+          Pole wymagane
+        </span>
       </div>
         <div class="form-group col-md-4">
           <label for="dateTo">Data końca wynajmu</label>
           <div class="input-group">
             <input id="dateTo" class="form-control" placeholder="yyyy-mm-dd"
-                   name="dp2" [(ngModel)]="toDate" ngbDatepicker #e="ngbDatepicker">
-            <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"></button>
+                   name="dp2" [(ngModel)]="toDate" ngbDatepicker #e="ngbDatepicker" formControlName="dateTo">
+            <button class="btn btn-outline-secondary btn-calendar" (click)="e.toggle()" type="button"><img src="assets/images/calendar.svg"
+                                                                                                           alt=""></button>
           </div>
+          <span class="text-danger"
+                *ngIf="(registerForm['dateTo'].touched || submitted) && registerForm['dateTo'].errors['required']">
+          Pole wymagane
+        </span>
         </div>
     </div>
   </div>
   <div class="containter">
     <div class="row">
       <div class="form-group col-md-4">
-        <label for="name">Imię</label>
-        <input [(ngModel)]="firstName" type="text" minlength="2" maxlength="25" class="form-control" id="name" placeholder="Wprowadź imię">
+        <label for="name" >Imię</label>
+        <input [(ngModel)]="firstName"  type="text" class="form-control" id="name"  placeholder="Wprowadź imię" formControlName="name">
+        <span class="text-danger"
+        *ngIf="(registerForm['name'].touched || submitted) && registerForm['name'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
       <div class="form-group col-md-4">
         <label for="surname">Nazwisko</label>
-        <input  [(ngModel)]="lastName" type="text" minlength="2" maxlength="25" class="form-control" id="surname" placeholder="Wprowadź nazwisko">
+        <input  [(ngModel)]="lastName" type="text" formControlName="surname"  class="form-control" id="surname" name="surname" placeholder="Wprowadź nazwisko">
+        <span class="text-danger"
+              *ngIf="(registerForm['surname'].touched || submitted) && registerForm['surname'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
     </div>
   </div>
@@ -38,23 +56,42 @@
   <h5>Adres zamieszkania</h5>
   <div class="container">
     <div class="row">
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4" style="padding-left: 0px">
         <label for="street">Ulica</label>
-        <input  [(ngModel)]="street" type="text" minlength="2" maxlength="25" class="form-control" id="street" placeholder="Wprowadź ulicę">
+        <input  [(ngModel)]="street"  type="text" formControlName="street"
+                class="form-control" id="street" name="street" placeholder="Wprowadź ulicę">
+        <span class="text-danger"
+              *ngIf="(registerForm['street'].touched || submitted) && registerForm['street'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
       <div class="form-group col-md-4">
         <label for="houseNumber">Numer domu/mieszkania</label>
-        <input  [(ngModel)]="houseAndApartmentNumber" type="text" minlength="2" maxlength="25" class="form-control" id="houseNumber" placeholder="Wprowadź numer domu/mieszkania">
+        <input  [(ngModel)]="houseAndApartmentNumber" type="text" formControlName="houseNumber"
+                 class="form-control" id="houseNumber" name="houseNumber" placeholder="Wprowadź numer domu/mieszkania">
+        <span class="text-danger"
+              *ngIf="(registerForm['houseNumber'].touched || submitted) && registerForm['houseNumber'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
     </div>
     <div class="row">
-      <div class="form-group col-md-2">
+      <div class="form-group col-md-2" style="padding-left: 0px">
         <label for="postalCode">Kod pocztowy</label>
-        <input  [(ngModel)]="postalCode" type="text" minlength="2" maxlength="25" class="form-control" id="postalCode" placeholder="Wprowadź kod pocztowy">
+        <input  [(ngModel)]="postalCode"  type="text" formControlName="postalCode"
+                 class="form-control" id="postalCode" placeholder="Wprowadź kod">
+        <span class="text-danger"
+              *ngIf="(registerForm['postalCode'].touched || submitted) && registerForm['postalCode'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
       <div class="form-group col-md-6">
         <label for="city">Miasto</label>
-        <input  [(ngModel)]="city" type="text" minlength="2" maxlength="25" class="form-control" id="city" placeholder="Wprowadź miasto">
+        <input  [(ngModel)]="city"  type="text"  class="form-control" id="city" placeholder="Wprowadź miasto" formControlName="city">
+        <span class="text-danger"
+              *ngIf="(registerForm['city'].touched || submitted) && registerForm['city'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
     </div>
   </div>
@@ -65,15 +102,30 @@
     <div class="row">
       <div class="form-group col-md-4">
         <label for="email">E-mail</label>
-        <input  [(ngModel)]="emailAddress" type="text" minlength="2" maxlength="25" class="form-control" id="email" placeholder="Wprowadź adres e-mail">
+        <input  [(ngModel)]="emailAddress"  type="text" formControlName="email" class="form-control" id="email" placeholder="Wprowadź adres e-mail">
+        <span class="text-danger"
+              *ngIf="(registerForm['email'].touched || submitted) && registerForm['email'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
       <div class="form-group col-md-4">
         <label for="phone">Numer telefonu</label>
-        <input  [(ngModel)]="phone" type="tel" minlength="2" maxlength="25" class="form-control" id="phone" placeholder="Wprowadź numer telefonu">
+        <input  [(ngModel)]="phone" type="tel" formControlName="phone" class="form-control" id="phone" placeholder="Wprowadź numer telefonu">
+        <span class="text-danger"
+              *ngIf="(registerForm['phone'].touched || submitted) && registerForm['phone'].errors!['required']">
+          Pole wymagane
+        </span>
       </div>
   </div>
   </div>
   <br>
-  <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Rezerwuj</button>
+  <button type="submit" class="btn btn-primary btn-lg" (click)="save(content)">Rezerwuj</button>
 </form>
-
+<ng-template #content let-modal >
+  <div class="modal-sm" style="text-align: center;padding: 2%">
+    <h5 style="text-align: center"><b>Rower zarezerwowany.</b></h5>
+    <p>Zapraszamy do wypożyczalni.</p>
+    <button style="float: right" type="button" class="btn btn-success" (click)="modal.close('Ok')" routerLinkActive="active" routerLink="about">
+      OK</button>
+  </div>
+</ng-template>

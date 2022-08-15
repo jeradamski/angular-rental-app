@@ -1,0 +1,13 @@
+.footer{
+  position: absolute;
+  margin-top: auto;
+  bottom:0;
+  width: 100%;
+}
+.footer p{
+  margin-bottom: 1px;
+}
+.footer p a {
+  text-decoration: none;
+  color: black;
+}

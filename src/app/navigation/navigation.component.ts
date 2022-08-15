@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { faPersonBiking } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +9,7 @@ import { faFilm } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavigationComponent implements OnInit {
 
-  filmIcon = faFilm;
+  personBiking = faPersonBiking;
 
   constructor() { }
 

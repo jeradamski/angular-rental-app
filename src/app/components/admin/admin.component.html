@@ -1,0 +1,21 @@
+<div class="admin">
+  <br>
+  <h3>Panel administratora </h3>
+  <br>
+  <table class="table" >
+    <thead>
+    <tr>
+      <th scope="col">Początek wynajmu</th>
+      <th scope="col">Koniec wynajmu</th>
+      <th scope="col">Kwota</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders" routerLink="/bikes-list">
+      <td>{{order.rentalStartingDate}}</td>
+      <td>{{order.rentalEndDate}}</td>
+      <td>{{order.rentalCost}},00zł</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

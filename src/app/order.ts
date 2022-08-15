@@ -3,16 +3,16 @@ import {NgbDateStruct} from "@ng-bootstrap/ng-bootstrap";
 export class Order {
 
   bikeId?: number;
-  firstName?: string;
-  lastName?: string;
-  street?: string;
-  houseAndApartmentNumber?: string;
-  postalCode?: string;
-  city?: string;
-  emailAddress?: string;
-  phone?: string;
-  rentalCost?: string;
-  rentalStartingDate?: NgbDateStruct;
-  rentalEndDate?: NgbDateStruct;
+  firstName: string | any;
+  lastName: string | any;
+  street?: string| any;
+  houseAndApartmentNumber?: string| any;
+  postalCode?: string| any;
+  city?: string| any;
+  emailAddress?: string| any;
+  phone?: string| any;
+  rentalCost?: string| any;
+  rentalStartingDate?: string| any;
+  rentalEndDate?: string| any;
 
 }
